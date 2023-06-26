@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ímpar ou par</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Inserindo Input de formulário </h1><br>
+<div class="td">
+    <h1>Descubra se o número é impar ou par:</h1>
+    <form>
+          <input type="text" placeholder="Peso 1" class="inTxt" id="inTxt"><br><br>  
+    </form><br><br><br><br>
+    
+    <p>Resultado:</p>
+   <h2></h2>
+
+</div>
+     <script>
+        const frm =document.querySelector("form");
+        const resp = document.querySelector("h2");
+
+        
+       frm.addEventListener("submit" , (e) => {
+        e.preventDefault();//
+        var valor1=parseFloat(frm.inTxt.value);  
+            
+        if (valor1%2==0){
+            resp="É par!"
+        }else{
+            resp="É ímpar!"
+        }
+        });
+   
+     </script>   
+
+</body>
+</html>

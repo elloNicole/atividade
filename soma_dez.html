@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma de dez</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Digite dois números</h1><br>
+<div class="td">
+    <h1>Soma</h1>
+    <form>
+          <input type="text" placeholder="valor 1" class="inTxt" id="inTxt"><br><br>  
+          <input type="text" placeholder="valor 2" class="inTxt1" id="inTxt1"><br><br>  
+          <input type="submit" value="envio" class="btn" id="btn">
+
+    </form><br><br><br><br>
+    
+   <h2></h2>
+</div>
+     <script>
+        const frm =document.querySelector("form");
+        const resp =document.querySelector("h2");
+        
+       frm.addEventListener("submit" , (e) => {
+        e.preventDefault();//
+        var valor1=parseFloat(frm.inTxt.value);  
+        var valor2=parseFloat(frm.inTxt1.value);
+        
+        let soma=valor1+valor2;   
+            if (soma>10){
+                resp.innerText = soma;
+            }
+            else{
+                resp.innerText = "Soma menor que dez!";
+            }
+        });
+   
+     </script>   
+
+</body>
+</html>

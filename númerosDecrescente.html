@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordem Decrescente</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Inserindo Input de formulário </h1><br>
+<div class="td">
+    <h1>Digite obrigatoriamente 3 números crescentes e o último, que não siga esta regra:</h1>
+    <form>
+          <input type="text" placeholder="valor 1" class="inTxt" id="inTxt"><br><br>  
+          <input type="text" placeholder="valor 2" class="inTxt1" id="inTxt1"><br><br>  
+          <input type="text" placeholder="valor 3" class="inTxt1" id="inTxt2"><br><br> 
+          <input type="text" placeholder="valor 4" class="inTxt1" id="inTxt3"><br><br> 
+          <input type="submit" value="envio" class="btn" id="btn">
+
+    </form><br><br><br><br>
+    
+    <H2>Resultado</H2>
+    <div class="resultado"></div>
+
+</div>
+     <script>
+        const frm = document.querySelector("form");
+        const resp = document.querySelector("h2");
+        const resultado1 = document.querySelector("h2:nth-of-type(1)");
+        const resultado2 = document.querySelector("h2:nth-of-type(2)");
+        const resultado3 = document.querySelector("h2:nth-of-type(3)");
+        const resultado4 = document.querySelector("h2:nth-of-type(4)");
+        
+       frm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        var valor1 = parseFloat(frm.inTxt.value);  
+        var valor2 = parseFloat(frm.inTxt1.value);
+        var valor3 = parseFloat(frm.inTxt2.value);
+        var valor4 = parseFloat(frm.inTxt3.value);
+            
+        let maior, menor, troca, quartoNum, aux;
+        const vetor = [];
+
+        maior = valor1;
+        menor = valor2;
+        if (maior < menor) {
+            troca = maior;
+            maior = menor;
+            menor = troca;
+        }
+        meio = valor1 + valor2 + valor3 - maior - menor;
+
+        if (valor1 != menor && valor2 != meio && valor3 != maior) {
+            alert("Valores incorretos, tente novamente!");
+        } else {
+            quartoNum = valor4;
+            vetor[0] = menor;
+            vetor[1] = meio;
+            vetor[2] = maior;
+            vetor[3] = quartoNum;
+
+            vetor.sort((a, b) => b - a);
+
+            const resultado = document.querySelector(".resultado");
+
+            for (let i = 0; i < vetor.length; i++) {
+                const numeroAtual = vetor[i];
+                const elementoH2 = document.createElement("h2");
+                elementoH2.textContent = numeroAtual;
+                resultado.appendChild(elementoH2);
+            }
+        }
+    });
+   
+     </script>   
+
+</body>
+</html>

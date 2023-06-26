@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervalo</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Inserindo Input de formulário </h1><br>
+<div class="td">
+    <h1>Descubra se um número está ou não no intervalo entre 20 e 90.</h1>
+    <form>
+          <input type="text" placeholder="valor 1" class="inTxt" id="inTxt"><br><br>  
+          <input type="submit" value="envio" class="btn" id="btn">
+
+    </form><br><br><br><br>
+    
+   <h2></h2>
+</div>
+     <script>
+        const frm =document.querySelector("form");
+        const resp =document.querySelector("h2");
+        
+       frm.addEventListener("submit" , (e) => {
+        e.preventDefault();//
+        var valor1=parseFloat(frm.inTxt.value);  
+        if (valor1<90 && valor1>20){
+            resp.innerText = "Está no intervalo entre 20 e 90.";
+        }else{
+            resp.innerText = "Não está no intervalo entre 20 e 90.";
+        }
+        
+        });
+   
+     </script>   
+
+</body>
+</html>
